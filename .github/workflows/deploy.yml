@@ -32,9 +32,6 @@ jobs:
       - name: Build with Next.js
         run: npm run build
 
-      - name: Prepare output for GitHub Pages
-        run: cp -r out/_next out/Mike/_next
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

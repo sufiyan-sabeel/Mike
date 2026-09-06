@@ -8,7 +8,7 @@ interface CapsuleSVGProps {
 export function CapsuleSVG({ state = 'empty', className = '' }: CapsuleSVGProps) {
   const threadOpacity = state === 'deleted' ? 0 : state === 'expiring' ? 0.3 : state === 'empty' ? 0.5 : 0.8
   const glowOpacity = state === 'processing' ? 0.6 : state === 'received' ? 0.5 : state === 'understood' ? 0.4 : state === 'expiring' ? 0.2 : state === 'deleted' ? 0 : 0.3
-  const shellFill = state === 'deleted' ? '#1E202400' : '#17181C'
+  const shellFill = state === 'deleted' ? '#292a2c00' : '#1f2022'
   const threadColor = state === 'expiring' ? '#E0A63B' : '#6C87FF'
 
   return (
@@ -20,9 +20,9 @@ export function CapsuleSVG({ state = 'empty', className = '' }: CapsuleSVGProps)
           <stop offset="100%" stopColor={threadColor} stopOpacity="0" />
         </radialGradient>
         <linearGradient id={`shell-${state}`} x1="50" y1="0" x2="150" y2="280" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#F4F4F3" stopOpacity="0.08" />
-          <stop offset="50%" stopColor="#AEB0B4" stopOpacity="0.04" />
-          <stop offset="100%" stopColor="#F4F4F3" stopOpacity="0.06" />
+          <stop offset="0%" stopColor="#e3e2e5" stopOpacity="0.08" />
+          <stop offset="50%" stopColor="#c5c5d6" stopOpacity="0.04" />
+          <stop offset="100%" stopColor="#e3e2e5" stopOpacity="0.06" />
         </linearGradient>
       </defs>
 
@@ -33,13 +33,13 @@ export function CapsuleSVG({ state = 'empty', className = '' }: CapsuleSVGProps)
       <ellipse cx="100" cy="260" rx="40" ry="6" fill="#000000" opacity="0.3" />
 
       {/* Capsule body */}
-      <rect x="60" y="40" width="80" height="200" rx="40" fill={shellFill} stroke="#AEB0B4" strokeWidth="1" strokeOpacity="0.15" />
+      <rect x="60" y="40" width="80" height="200" rx="40" fill={shellFill} stroke="#c5c5d6" strokeWidth="1" strokeOpacity="0.15" />
       <rect x="60" y="40" width="80" height="200" rx="40" fill={`url(#shell-${state})`} />
 
       {/* Top cap */}
-      <ellipse cx="100" cy="40" rx="40" ry="8" fill="#1E2024" stroke="#AEB0B4" strokeWidth="1" strokeOpacity="0.12" />
+      <ellipse cx="100" cy="40" rx="40" ry="8" fill="#292a2c" stroke="#c5c5d6" strokeWidth="1" strokeOpacity="0.12" />
       {/* Bottom cap */}
-      <ellipse cx="100" cy="240" rx="40" ry="8" fill="#1E2024" stroke="#AEB0B4" strokeWidth="1" strokeOpacity="0.12" />
+      <ellipse cx="100" cy="240" rx="40" ry="8" fill="#292a2c" stroke="#c5c5d6" strokeWidth="1" strokeOpacity="0.12" />
 
       {/* Signal thread */}
       <line x1="100" y1="50" x2="100" y2="230" stroke={threadColor} strokeWidth="2" strokeOpacity={threadOpacity} strokeLinecap="round" />
@@ -84,7 +84,7 @@ export function CapsuleSVG({ state = 'empty', className = '' }: CapsuleSVGProps)
               cx={80 + Math.cos(i * 0.785) * 20}
               cy={120 + Math.sin(i * 0.785) * 40}
               r="1.5"
-              fill="#AEB0B4"
+              fill="#c5c5d6"
               opacity="0.3"
             >
               <animate attributeName="cy" from={String(120 + Math.sin(i * 0.785) * 40)} to={String(120 + Math.sin(i * 0.785) * 80)} dur="1s" fill="freeze" />

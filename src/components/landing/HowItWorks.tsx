@@ -8,8 +8,8 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="py-24 md:py-40 px-6 md:px-16" id="how-it-works">
-      <div className="max-w-5xl mx-auto">
+    <section className="py-20 md:py-32 px-5 md:px-10" id="how-it-works">
+      <div className="max-w-[1200px] mx-auto">
         <div className="text-center mb-16 anim-slide-up">
           <p className="text-xs font-medium tracking-[0.1em] uppercase text-[#6C87FF] mb-4">How it works</p>
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
@@ -22,7 +22,7 @@ export function HowItWorks() {
             <div key={step.num} className={`text-center md:text-left anim-slide-up-delay-${i + 1}`}>
               <span className="font-mono text-3xl font-bold text-[#6C87FF]/30">{step.num}</span>
               <h3 className="font-display text-lg font-semibold mt-2 mb-2">{step.label}</h3>
-              <p className="text-sm text-[#AEB0B4] leading-relaxed">{step.desc}</p>
+              <p className="text-sm text-[#c5c5d6] leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>

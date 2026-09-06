@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-[#0B0C0E] flex flex-col">
+    <div className="min-h-screen bg-[#121315] flex flex-col">
       <InboxInitializer />
       <AddressCard />
       <TopBar />

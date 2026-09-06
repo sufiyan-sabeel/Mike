@@ -10,10 +10,10 @@ export default function InboxPage() {
   return (
     <div className="flex-1 flex flex-col md:flex-row">
       {/* Message list */}
-      <div className="w-full md:w-80 lg:w-96 border-r border-[#26282C] flex flex-col min-h-0">
-        <div className="px-5 py-3 border-b border-[#26282C] flex items-center justify-between">
+      <div className="w-full md:w-80 lg:w-96 border-r border-[#444653]/30 flex flex-col min-h-0">
+        <div className="px-5 py-3 border-b border-[#444653]/30 flex items-center justify-between">
           <h2 className="text-sm font-semibold">Inbox</h2>
-          <span className="text-xs text-[#6E7075]">{messages.length} message{messages.length !== 1 ? 's' : ''}</span>
+          <span className="text-xs text-[#8e909f]">{messages.length} message{messages.length !== 1 ? 's' : ''}</span>
         </div>
         <InboxList />
       </div>
@@ -25,8 +25,8 @@ export default function InboxPage() {
             <div className="mb-6">
               <CapsuleSVG state={capsuleState} className="w-24 h-24 mx-auto" />
             </div>
-            <p className="text-sm text-[#AEB0B4] font-medium mb-2">Waiting for your first message</p>
-            <p className="text-xs text-[#6E7075] mb-6">Send an email to your temporary address to get started</p>
+            <p className="text-sm text-[#c5c5d6] font-medium mb-2">Waiting for your first message</p>
+            <p className="text-xs text-[#8e909f] mb-6">Send an email to your temporary address to get started</p>
             <PrimaryButton size="sm" onClick={() => {
               navigator.clipboard.writeText(inbox?.address || '')
             }}>
@@ -35,7 +35,7 @@ export default function InboxPage() {
           </div>
         ) : (
           <div className="text-center">
-            <p className="text-sm text-[#6E7075]">Select a message to read</p>
+            <p className="text-sm text-[#8e909f]">Select a message to read</p>
           </div>
         )}
       </div>

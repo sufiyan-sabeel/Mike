@@ -18,7 +18,7 @@ export function FloatingNav() {
   const pathname = usePathname()
 
   return (
-    <nav className="hidden md:flex fixed left-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-2 w-16 bg-[#1E2024]/80 backdrop-blur-xl border border-[#26282C] rounded-[24px] py-4 px-2 items-center" aria-label="Main navigation">
+    <nav className="hidden md:flex fixed left-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-2 w-16 bg-[#1f2022]/80 backdrop-blur-xl border border-[#444653]/30 rounded-2xl py-4 px-2 items-center" aria-label="Main navigation">
       {/* Primary */}
       <div className="flex flex-col gap-1 w-full">
         {primaryItems.map((item) => {
@@ -28,8 +28,8 @@ export function FloatingNav() {
               key={item.href}
               href={item.href}
               className={cn(
-                'flex flex-col items-center gap-1 py-2.5 px-2 rounded-[12px] transition-all duration-200 text-xs',
-                active ? 'text-[#6C87FF] bg-[#6C87FF]/10' : 'text-[#6E7075] hover:text-[#AEB0B4] hover:bg-[#17181C]'
+                'flex flex-col items-center gap-1 py-2.5 px-2 rounded-xl transition-all duration-200 text-xs',
+                active ? 'text-[#6C87FF] bg-[#6C87FF]/10' : 'text-[#8e909f] hover:text-[#c5c5d6] hover:bg-[#1f2022]'
               )}
               aria-current={active ? 'page' : undefined}
             >
@@ -41,7 +41,7 @@ export function FloatingNav() {
       </div>
 
       {/* Divider */}
-      <div className="w-8 h-px bg-[#26282C] my-2" />
+      <div className="w-8 h-px bg-[#444653]/30 my-2" />
 
       {/* Secondary */}
       <div className="flex flex-col gap-1 w-full">
@@ -52,8 +52,8 @@ export function FloatingNav() {
               key={item.href}
               href={item.href}
               className={cn(
-                'flex flex-col items-center gap-1 py-2.5 px-2 rounded-[12px] transition-all duration-200 text-xs',
-                active ? 'text-[#6C87FF] bg-[#6C87FF]/10' : 'text-[#6E7075] hover:text-[#AEB0B4] hover:bg-[#17181C]'
+                'flex flex-col items-center gap-1 py-2.5 px-2 rounded-xl transition-all duration-200 text-xs',
+                active ? 'text-[#6C87FF] bg-[#6C87FF]/10' : 'text-[#8e909f] hover:text-[#c5c5d6] hover:bg-[#1f2022]'
               )}
             >
               {item.icon}

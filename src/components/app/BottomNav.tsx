@@ -14,7 +14,7 @@ export function BottomNav() {
   const pathname = usePathname()
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#17181C]/90 backdrop-blur-xl border-t border-[#26282C] safe-area-bottom" aria-label="Mobile navigation">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#1f2022]/90 backdrop-blur-xl border-t border-[#444653]/30 safe-area-bottom" aria-label="Mobile navigation">
       <div className="flex items-center justify-around h-16 px-2">
         {items.map((item) => {
           const active = item.href === '/app' ? pathname === '/app' : pathname.startsWith(item.href)
@@ -23,8 +23,8 @@ export function BottomNav() {
               key={item.href}
               href={item.href}
               className={cn(
-                'flex flex-col items-center gap-1 py-1.5 px-3 rounded-[12px] transition-colors min-w-[60px]',
-                active ? 'text-[#6C87FF]' : 'text-[#6E7075]'
+                'flex flex-col items-center gap-1 py-1.5 px-3 rounded-xl transition-colors min-w-[60px]',
+                active ? 'text-[#6C87FF]' : 'text-[#8e909f]'
               )}
               aria-current={active ? 'page' : undefined}
             >

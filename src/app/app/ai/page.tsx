@@ -9,9 +9,9 @@ export default function AIPage() {
 
   return (
     <div className="flex-1 flex flex-col">
-      <div className="px-6 py-4 border-b border-[#26282C]">
+      <div className="px-6 py-4 border-b border-[#444653]/30">
         <h2 className="text-sm font-semibold">AI Inbox</h2>
-        <p className="text-xs text-[#6E7075] mt-0.5">AI-analyzed insights from your messages</p>
+        <p className="text-xs text-[#8e909f] mt-0.5">AI-analyzed insights from your messages</p>
       </div>
 
       <div className="flex-1 overflow-y-auto">
@@ -22,16 +22,16 @@ export default function AIPage() {
                 <span className="text-[10px] font-bold text-white">AI</span>
               </div>
             </div>
-            <p className="text-sm text-[#AEB0B4] font-medium mb-1">No AI insights yet</p>
-            <p className="text-xs text-[#6E7075] max-w-xs">Send an email to your inbox and AI will automatically analyze it</p>
+            <p className="text-sm text-[#c5c5d6] font-medium mb-1">No AI insights yet</p>
+            <p className="text-xs text-[#8e909f] max-w-xs">Send an email to your inbox and AI will automatically analyze it</p>
           </div>
         ) : (
-          <div className="divide-y divide-[#26282C]">
+          <div className="divide-y divide-[#444653]/30">
             {aiMessages.map((msg) => (
               <Link
                 key={msg.id}
                 href={`/app/inbox/view/?id=${msg.id}`}
-                className="block px-6 py-5 hover:bg-[#1E2024] transition-colors"
+                className="block px-6 py-5 hover:bg-[#292a2c] transition-colors"
               >
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 rounded-full bg-[#6C87FF]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -39,11 +39,11 @@ export default function AIPage() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-sm font-medium text-white">{msg.sender}</span>
-                      <span className="text-[10px] text-[#6E7075]">{formatDate(msg.timestamp)}</span>
+                      <span className="text-sm font-medium text-[#e3e2e5]">{msg.sender}</span>
+                      <span className="text-[10px] text-[#8e909f]">{formatDate(msg.timestamp)}</span>
                     </div>
                     {msg.ai?.summary && (
-                      <p className="text-sm text-[#AEB0B4] leading-relaxed mb-2">{msg.ai.summary}</p>
+                      <p className="text-sm text-[#c5c5d6] leading-relaxed mb-2">{msg.ai.summary}</p>
                     )}
                     {msg.ai?.verificationCode && (
                       <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-[#6C87FF]/10 border border-[#6C87FF]/20">
@@ -54,7 +54,7 @@ export default function AIPage() {
                     {msg.ai?.extractedLinks && msg.ai.extractedLinks.length > 0 && (
                       <div className="flex flex-wrap gap-1.5 mt-2">
                         {msg.ai.extractedLinks.map((link, i) => (
-                          <span key={i} className="text-[10px] text-[#6E7075] bg-[#1E2024] px-2 py-0.5 rounded">
+                          <span key={i} className="text-[10px] text-[#8e909f] bg-[#292a2c] px-2 py-0.5 rounded">
                             {link.label || 'link'}
                           </span>
                         ))}

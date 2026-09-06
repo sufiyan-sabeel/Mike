@@ -1,13 +1,13 @@
 export function PrivacySection() {
   return (
-    <section className="py-24 md:py-40 px-6 md:px-16" id="privacy">
-      <div className="max-w-3xl mx-auto">
+    <section className="py-20 md:py-32 px-5 md:px-10" id="privacy">
+      <div className="max-w-[800px] mx-auto">
         <div className="anim-slide-up">
           <p className="text-xs font-medium tracking-[0.1em] uppercase text-[#6C87FF] mb-4">Privacy</p>
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">
             Private by architecture,<br />not by promise
           </h2>
-          <div className="space-y-6 text-[#AEB0B4] text-lg leading-relaxed">
+          <div className="space-y-6 text-[#c5c5d6] text-lg leading-relaxed">
             <p>
               Every inbox has a defined lifetime. When it expires, your data is deleted — not hidden, not archived, deleted.
             </p>
@@ -18,9 +18,9 @@ export function PrivacySection() {
                 { label: 'No account needed', desc: 'Use MIKE without signing up for anything' },
                 { label: 'AI opt-out', desc: 'Disable AI processing at any time' },
               ].map((item) => (
-                <div key={item.label} className="p-4 rounded-[12px] bg-[#17181C] border border-[#26282C]">
-                  <p className="text-sm font-medium text-white mb-1">{item.label}</p>
-                  <p className="text-sm text-[#AEB0B4]">{item.desc}</p>
+                <div key={item.label} className="p-4 rounded-xl bg-[#1f2022] border border-[#444653]/30">
+                  <p className="text-sm font-medium text-[#e3e2e5] mb-1">{item.label}</p>
+                  <p className="text-sm text-[#c5c5d6]">{item.desc}</p>
                 </div>
               ))}
             </div>

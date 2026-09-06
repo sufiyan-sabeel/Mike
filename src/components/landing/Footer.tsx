@@ -1,14 +1,17 @@
 export function Footer() {
   return (
-    <footer className="border-t border-[#26282C] py-12 px-6 md:px-16">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="font-display text-lg font-bold tracking-tight">MIKE</div>
-        <div className="flex items-center gap-6 text-sm text-[#6E7075]">
-          <a href="#privacy" className="hover:text-[#AEB0B4] transition-colors">Privacy</a>
-          <a href="#" className="hover:text-[#AEB0B4] transition-colors">Terms</a>
-          <a href="#" className="hover:text-[#AEB0B4] transition-colors">Help</a>
-        </div>
-        <p className="text-xs text-[#6E7075]">&copy; 2026 MIKE. All rights reserved.</p>
+    <footer className="w-full py-16 bg-[#121315] border-t border-[#444653]/10 mt-auto">
+      <div className="flex flex-col md:flex-row justify-between items-center max-w-[800px] mx-auto px-5 gap-6">
+        <span className="font-display text-lg font-bold text-[#e3e2e5]">MIKE</span>
+        <nav className="flex flex-wrap justify-center gap-6 text-xs font-medium tracking-[0.1em] uppercase">
+          <a className="text-[#8e909f] hover:text-[#6C87FF] transition-colors duration-300" href="#privacy">Privacy Policy</a>
+          <a className="text-[#8e909f] hover:text-[#6C87FF] transition-colors duration-300" href="#">Terms of Service</a>
+          <a className="text-[#8e909f] hover:text-[#6C87FF] transition-colors duration-300" href="#">Status</a>
+          <a className="text-[#8e909f] hover:text-[#6C87FF] transition-colors duration-300" href="#">Contact</a>
+        </nav>
+        <span className="text-xs text-[#8e909f]">
+          &copy; 2026 MIKE. All rights reserved.
+        </span>
       </div>
     </footer>
   )

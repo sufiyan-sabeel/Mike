@@ -18,7 +18,7 @@ function AIPanelInner() {
   if (!message?.ai || message.ai.status === 'idle') {
     return (
       <div className="p-6 text-center">
-        <p className="text-xs text-[#6E7075]">AI hasn&apos;t looked at this message yet</p>
+        <p className="text-xs text-[#8e909f]">AI hasn&apos;t looked at this message yet</p>
       </div>
     )
   }
@@ -37,7 +37,7 @@ function AIPanelInner() {
     return (
       <div className="p-6 text-center">
         <p className="text-sm text-[#F16B7E] mb-2">AI couldn&apos;t process this message</p>
-        <p className="text-xs text-[#6E7075]">{message.ai.error || 'Try again later'}</p>
+        <p className="text-xs text-[#8e909f]">{message.ai.error || 'Try again later'}</p>
       </div>
     )
   }
@@ -65,12 +65,12 @@ function AIPanelInner() {
         <div className="w-6 h-6 rounded-full bg-[#6C87FF] flex items-center justify-center">
           <span className="text-[10px] font-bold text-white">AI</span>
         </div>
-        <span className="text-xs font-medium text-[#AEB0B4]">AI Insight</span>
+        <span className="text-xs font-medium text-[#c5c5d6]">AI Insight</span>
       </div>
 
       {message.ai.summary && (
-        <div className="p-3 rounded-[12px] bg-[#0B0C0E] border border-[#26282C]">
-          <p className="text-sm text-[#AEB0B4] leading-relaxed">
+        <div className="p-3 rounded-xl bg-[#121315] border border-[#444653]/30">
+          <p className="text-sm text-[#c5c5d6] leading-relaxed">
             <span className="text-[#6C87FF] font-medium">{message.ai.senderContext || 'Message'}</span>
             {' '}{message.ai.summary}
           </p>
@@ -78,9 +78,9 @@ function AIPanelInner() {
       )}
 
       {message.ai.verificationCode && (
-        <div className="p-4 rounded-[12px] bg-[#6C87FF]/10 border border-[#6C87FF]/30 text-center">
+        <div className="p-4 rounded-xl bg-[#6C87FF]/10 border border-[#6C87FF]/30 text-center">
           <p className="text-[10px] uppercase tracking-[0.1em] text-[#6C87FF] mb-2 font-medium">Verification code</p>
-          <p className="font-mono text-2xl font-bold tracking-[0.1em] text-white mb-2">{message.ai.verificationCode}</p>
+          <p className="font-mono text-2xl font-bold tracking-[0.1em] text-[#e3e2e5] mb-2">{message.ai.verificationCode}</p>
           <button onClick={handleCopyCode} className="text-xs text-[#6C87FF] font-medium hover:underline">
             {copied ? 'Copied!' : 'Copy code'}
           </button>
@@ -89,27 +89,27 @@ function AIPanelInner() {
 
       {message.ai.extractedLinks && message.ai.extractedLinks.length > 0 && (
         <div className="space-y-2">
-          <p className="text-[10px] uppercase tracking-[0.1em] text-[#6E7075] font-medium">Extracted links</p>
+          <p className="text-[10px] uppercase tracking-[0.1em] text-[#8e909f] font-medium">Extracted links</p>
           {message.ai.extractedLinks.map((link, i) => (
             <a
               key={i}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="block px-3 py-2 rounded-[8px] bg-[#0B0C0E] border border-[#26282C] hover:border-[#6C87FF]/30 transition-colors"
+              className="block px-3 py-2 rounded-lg bg-[#121315] border border-[#444653]/30 hover:border-[#6C87FF]/30 transition-colors"
             >
-              <p className="text-xs font-medium text-[#AEB0B4]">{link.label || link.url}</p>
-              {link.purpose && <p className="text-[10px] text-[#6E7075]">{link.purpose}</p>}
+              <p className="text-xs font-medium text-[#c5c5d6]">{link.label || link.url}</p>
+              {link.purpose && <p className="text-[10px] text-[#8e909f]">{link.purpose}</p>}
             </a>
           ))}
         </div>
       )}
 
       <div className="space-y-2 pt-2">
-        <button onClick={handleSaveNote} className="w-full text-left px-3 py-2 text-xs text-[#AEB0B4] rounded-[8px] hover:bg-[#1E2024] transition-colors">
+        <button onClick={handleSaveNote} className="w-full text-left px-3 py-2 text-xs text-[#c5c5d6] rounded-lg hover:bg-[#292a2c] transition-colors">
           Save to Notes →
         </button>
-        <button onClick={handleCreateTodo} className="w-full text-left px-3 py-2 text-xs text-[#AEB0B4] rounded-[8px] hover:bg-[#1E2024] transition-colors">
+        <button onClick={handleCreateTodo} className="w-full text-left px-3 py-2 text-xs text-[#c5c5d6] rounded-lg hover:bg-[#292a2c] transition-colors">
           Create Todo →
         </button>
       </div>

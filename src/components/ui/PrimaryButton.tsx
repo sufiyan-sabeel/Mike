@@ -12,7 +12,7 @@ export function PrimaryButton({ children, size = 'md', loading, className, disab
     <button
       className={cn(
         'inline-flex items-center justify-center gap-2 font-medium rounded-full transition-all duration-200',
-        'bg-[#6C87FF] text-white hover:bg-[#5A75E8] active:scale-[0.97]',
+        'bg-[#6C87FF] text-white hover:opacity-90 active:scale-[0.97]',
         'disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-[#6C87FF] disabled:active:scale-100',
         'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6C87FF]',
         size === 'sm' && 'h-9 px-5 text-sm',
@@ -44,7 +44,7 @@ export function SecondaryButton({ children, size = 'md', className, ...props }: 
     <button
       className={cn(
         'inline-flex items-center justify-center gap-2 font-medium rounded-full transition-all duration-200',
-        'border border-[#26282C] text-[#F4F4F3] hover:border-[#6C87FF] hover:text-[#6C87FF]',
+        'border border-[#444653]/30 text-[#e3e2e5] hover:border-[#6C87FF] hover:text-[#6C87FF]',
         'active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6C87FF]',
         'disabled:opacity-40 disabled:cursor-not-allowed',
         size === 'sm' && 'h-9 px-5 text-sm',

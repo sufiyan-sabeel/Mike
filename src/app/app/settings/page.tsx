@@ -2,6 +2,7 @@
 import { useInboxStore } from '@/lib/store'
 import { PrimaryButton } from '@/components/ui/PrimaryButton'
 import { SecondaryButton } from '@/components/ui/PrimaryButton'
+import Link from 'next/link'
 import { useState } from 'react'
 
 export default function SettingsPage() {
@@ -91,10 +92,10 @@ export default function SettingsPage() {
               <span className="text-sm text-[#6E7075]">1.0.0</span>
             </div>
             <div className="h-px bg-[#26282C]" />
-            <a href="/app/settings/privacy" className="flex items-center justify-between group">
+            <Link href="/app/settings/privacy" className="flex items-center justify-between group">
               <span className="text-sm text-[#AEB0B4] group-hover:text-white transition-colors">Privacy</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6E7075" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
+            </Link>
           </div>
         </section>
 

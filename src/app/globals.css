@@ -223,3 +223,7 @@ body.daylight {
   color: var(--color-accent);
   text-decoration: underline;
 }
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}

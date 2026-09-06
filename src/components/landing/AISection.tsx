@@ -1,19 +1,8 @@
-'use client'
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-
 export function AISection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-100px' })
-
   return (
-    <section ref={ref} className="py-24 md:py-40 px-6 md:px-16">
+    <section className="py-24 md:py-40 px-6 md:px-16">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -24 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="anim-slide-left">
           <p className="text-xs font-medium tracking-[0.1em] uppercase text-[#6C87FF] mb-4">AI Inbox</p>
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-6">
             Understand every email,<br />without reading it
@@ -29,14 +18,9 @@ export function AISection() {
               </li>
             ))}
           </ul>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 24 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-[#17181C] border border-[#26282C] rounded-[24px] p-6 space-y-4"
-        >
+        <div className="bg-[#17181C] border border-[#26282C] rounded-[24px] p-6 space-y-4 anim-slide-right">
           <div className="flex items-center gap-2 mb-2">
             <div className="w-6 h-6 rounded-full bg-[#6C87FF] flex items-center justify-center">
               <span className="text-[10px] font-bold text-white">AI</span>
@@ -56,7 +40,7 @@ export function AISection() {
             <button className="flex-1 py-2.5 rounded-full bg-[#6C87FF] text-white text-sm font-medium">Copy code</button>
             <button className="flex-1 py-2.5 rounded-full border border-[#26282C] text-[#AEB0B4] text-sm font-medium hover:border-[#6C87FF] transition-colors">Open email</button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

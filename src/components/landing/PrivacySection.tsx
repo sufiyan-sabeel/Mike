@@ -1,19 +1,8 @@
-'use client'
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-
 export function PrivacySection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-100px' })
-
   return (
-    <section ref={ref} className="py-24 md:py-40 px-6 md:px-16" id="privacy">
+    <section className="py-24 md:py-40 px-6 md:px-16" id="privacy">
       <div className="max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="anim-slide-up">
           <p className="text-xs font-medium tracking-[0.1em] uppercase text-[#6C87FF] mb-4">Privacy</p>
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">
             Private by architecture,<br />not by promise
@@ -36,7 +25,7 @@ export function PrivacySection() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

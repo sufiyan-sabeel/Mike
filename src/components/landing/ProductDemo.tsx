@@ -1,32 +1,15 @@
-'use client'
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-
 export function ProductDemo() {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-100px' })
-
   return (
-    <section ref={ref} className="py-24 md:py-40 px-6 md:px-16" id="demo">
+    <section className="py-24 md:py-40 px-6 md:px-16" id="demo">
       <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16 anim-slide-up">
           <p className="text-xs font-medium tracking-[0.1em] uppercase text-[#6C87FF] mb-4">Live experience</p>
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
             See MIKE in action
           </h2>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-[#17181C] border border-[#26282C] rounded-[24px] overflow-hidden"
-        >
+        <div className="bg-[#17181C] border border-[#26282C] rounded-[24px] overflow-hidden anim-slide-up-delay-1">
           {/* Demo panel header */}
           <div className="flex items-center gap-3 px-6 py-4 border-b border-[#26282C]">
             <div className="w-3 h-3 rounded-full bg-[#F16B7E]/60" />
@@ -89,21 +72,18 @@ export function ProductDemo() {
                 <span className="text-xs font-medium text-[#AEB0B4]">AI Insight</span>
               </div>
 
-              {/* Summary */}
               <div className="p-3 rounded-[12px] bg-[#0B0C0E] border border-[#26282C]">
                 <p className="text-xs text-[#AEB0B4] leading-relaxed">
                   <span className="text-[#6C87FF] font-medium">GitHub sent a verification email.</span> Code detected and ready to copy.
                 </p>
               </div>
 
-              {/* OTP Card */}
               <div className="p-4 rounded-[12px] bg-[#6C87FF]/10 border border-[#6C87FF]/30 text-center">
                 <p className="text-[10px] uppercase tracking-wider text-[#6C87FF] mb-2 font-medium">Verification code</p>
                 <p className="font-mono text-2xl font-bold tracking-[0.1em] text-white mb-2">482913</p>
                 <button className="text-xs text-[#6C87FF] font-medium hover:underline">Copy code</button>
               </div>
 
-              {/* Actions */}
               <div className="space-y-2">
                 <button className="w-full text-left px-3 py-2 text-xs text-[#AEB0B4] rounded-[8px] hover:bg-[#1E2024] transition-colors">
                   Save to Notes →
@@ -114,7 +94,7 @@ export function ProductDemo() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

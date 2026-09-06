@@ -1,5 +1,5 @@
 'use client'
-import { PrimaryButton } from '@/components/ui/PrimaryButton'
+import { PrimaryButton, SecondaryButton } from '@/components/ui/PrimaryButton'
 import { CapsuleSVG } from '@/components/ui/CapsuleSVG'
 import { motion } from 'framer-motion'
 import Link from 'next/link'

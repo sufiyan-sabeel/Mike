@@ -15,7 +15,7 @@ export default function TodoPage() {
 
   const filteredTodos = todos.filter(t => {
     if (view === 'completed') return t.completed
-    if (view === 'today') return !t.completed && t.dueDate <= today
+    if (view === 'today') return !t.completed && (t.dueDate ? t.dueDate <= today : false)
     return !t.completed && (!t.dueDate || t.dueDate > today)
   })
 

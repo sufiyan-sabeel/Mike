@@ -27,7 +27,7 @@ export function InboxList() {
       {messages.map((msg) => (
         <Link
           key={msg.id}
-          href={`/app/inbox/${msg.id}`}
+          href={`/app/inbox/view/?id=${msg.id}`}
           onClick={() => selectMessage(msg.id)}
           className={cn(
             'block px-5 py-4 border-b border-[#26282C] transition-colors hover:bg-[#1E2024]',

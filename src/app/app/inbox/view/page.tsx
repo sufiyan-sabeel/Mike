@@ -3,7 +3,7 @@ import { EmailViewer } from '@/components/email/EmailViewer'
 import { AIPanel } from '@/components/ai/AIPanel'
 import { useUIStore } from '@/lib/store'
 
-export default function MessagePage() {
+export default function MessageViewPage() {
   const { aiPanelOpen, toggleAIPanel } = useUIStore()
 
   return (

@@ -30,7 +30,7 @@ export default function AIPage() {
             {aiMessages.map((msg) => (
               <Link
                 key={msg.id}
-                href={`/app/inbox/${msg.id}`}
+                href={`/app/inbox/view/?id=${msg.id}`}
                 className="block px-6 py-5 hover:bg-[#1E2024] transition-colors"
               >
                 <div className="flex items-start gap-3">

@@ -5,21 +5,21 @@ import { PrimaryButton } from '@/components/ui/PrimaryButton'
 import { SecondaryButton } from '@/components/ui/PrimaryButton'
 import { useNotesStore } from '@/lib/store'
 import { useTodoStore } from '@/lib/store'
-import { useParams, useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 
-export function EmailViewer() {
-  const params = useParams()
+function EmailViewerInner() {
+  const searchParams = useSearchParams()
+  const messageId = searchParams.get('id')
   const router = useRouter()
-  const messageId = params?.messageId as string
   const { messages, markRead } = useInboxStore()
   const { createNote } = useNotesStore()
   const { createTodo } = useTodoStore()
   const message = messages.find(m => m.id === messageId)
 
-  useEffect(() => {
-    if (message && !message.read) markRead(message.id)
-  }, [message, markRead])
+  if (message && !message.read) {
+    markRead(message.id)
+  }
 
   if (!message) {
     return (
@@ -35,7 +35,7 @@ export function EmailViewer() {
       content: message.textBody || message.preview,
       sourceMessageId: message.id,
     })
-    router.push('/app/notes')
+    router.push('/app/notes/')
   }
 
   const handleCreateTodo = () => {
@@ -43,7 +43,7 @@ export function EmailViewer() {
       title: message.subject,
       sourceMessageId: message.id,
     })
-    router.push('/app/todo')
+    router.push('/app/todo/')
   }
 
   return (
@@ -85,5 +85,13 @@ export function EmailViewer() {
         <SecondaryButton size="sm" onClick={handleCreateTodo}>Create Todo</SecondaryButton>
       </div>
     </div>
+  )
+}
+
+export function EmailViewer() {
+  return (
+    <Suspense fallback={<div className="flex-1 flex items-center justify-center"><div className="skeleton h-8 w-48" /></div>}>
+      <EmailViewerInner />
+    </Suspense>
   )
 }

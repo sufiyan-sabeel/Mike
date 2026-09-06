@@ -1,13 +1,14 @@
 'use client'
 import { useInboxStore } from '@/lib/store'
-import { useParams, useRouter } from 'next/navigation'
 import { useNotesStore, useTodoStore } from '@/lib/store'
-import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+import { useState, Suspense } from 'react'
 
-export function AIPanel() {
-  const params = useParams()
+function AIPanelInner() {
+  const searchParams = useSearchParams()
+  const messageId = searchParams.get('id')
   const router = useRouter()
-  const messageId = params?.messageId as string
   const { messages } = useInboxStore()
   const { createNote } = useNotesStore()
   const { createTodo } = useTodoStore()
@@ -50,17 +51,16 @@ export function AIPanel() {
 
   const handleSaveNote = () => {
     createNote({ title: message.subject, content: message.ai?.summary || message.preview, sourceMessageId: message.id })
-    router.push('/app/notes')
+    router.push('/app/notes/')
   }
 
   const handleCreateTodo = () => {
     createTodo({ title: `Follow up: ${message.subject}`, sourceMessageId: message.id })
-    router.push('/app/todo')
+    router.push('/app/todo/')
   }
 
   return (
     <div className="p-4 space-y-4">
-      {/* Header */}
       <div className="flex items-center gap-2">
         <div className="w-6 h-6 rounded-full bg-[#6C87FF] flex items-center justify-center">
           <span className="text-[10px] font-bold text-white">AI</span>
@@ -68,7 +68,6 @@ export function AIPanel() {
         <span className="text-xs font-medium text-[#AEB0B4]">AI Insight</span>
       </div>
 
-      {/* Summary */}
       {message.ai.summary && (
         <div className="p-3 rounded-[12px] bg-[#0B0C0E] border border-[#26282C]">
           <p className="text-sm text-[#AEB0B4] leading-relaxed">
@@ -78,7 +77,6 @@ export function AIPanel() {
         </div>
       )}
 
-      {/* OTP Card */}
       {message.ai.verificationCode && (
         <div className="p-4 rounded-[12px] bg-[#6C87FF]/10 border border-[#6C87FF]/30 text-center">
           <p className="text-[10px] uppercase tracking-[0.1em] text-[#6C87FF] mb-2 font-medium">Verification code</p>
@@ -89,7 +87,6 @@ export function AIPanel() {
         </div>
       )}
 
-      {/* Extracted links */}
       {message.ai.extractedLinks && message.ai.extractedLinks.length > 0 && (
         <div className="space-y-2">
           <p className="text-[10px] uppercase tracking-[0.1em] text-[#6E7075] font-medium">Extracted links</p>
@@ -108,7 +105,6 @@ export function AIPanel() {
         </div>
       )}
 
-      {/* Actions */}
       <div className="space-y-2 pt-2">
         <button onClick={handleSaveNote} className="w-full text-left px-3 py-2 text-xs text-[#AEB0B4] rounded-[8px] hover:bg-[#1E2024] transition-colors">
           Save to Notes →
@@ -118,5 +114,13 @@ export function AIPanel() {
         </button>
       </div>
     </div>
+  )
+}
+
+export function AIPanel() {
+  return (
+    <Suspense fallback={<div className="p-6"><div className="skeleton h-4 w-3/4" /></div>}>
+      <AIPanelInner />
+    </Suspense>
   )
 }

@@ -16,7 +16,7 @@ export default function NotesPage() {
 
   const handleNewNote = () => {
     const id = createNote({ title: '', content: '' })
-    router.push(`/app/notes/${id}`)
+    router.push(`/app/notes/edit/?id=${id}`)
   }
 
   return (
@@ -58,7 +58,7 @@ export default function NotesPage() {
             filtered.map((note) => (
               <button
                 key={note.id}
-                onClick={() => router.push(`/app/notes/${note.id}`)}
+                onClick={() => router.push(`/app/notes/edit/?id=${note.id}`)}
                 className="w-full text-left px-5 py-4 border-b border-[#26282C] hover:bg-[#1E2024] transition-colors group"
               >
                 <div className="flex items-start justify-between gap-2">
